@@ -13,6 +13,17 @@ def encode(to_encode):
         encoded += str(current_digit)
     return encoded
 
+def decode(to_decode):
+	decoded = ""
+	for i in range(len(to_decode)):
+
+        current_digit = int(to_decode[i]) - 3
+
+        if current_digit < 0:
+            current_digit += 10
+        decoded += str(current_digit)
+    return decoded
+
 
 if __name__ == "__main__":
     password = ""
@@ -31,7 +42,8 @@ if __name__ == "__main__":
             print("Your password has been encoded and stored!")
 
         if user_choice == 2:
-            print(f"The encoded password is {password}, and the original password is {decode(password)}")
+		decoded_password = decode(password)
+		print(f"The encoded password is {password}, and the original password is {decode(password)}")
 
         if user_choice == 3:
             break
